@@ -1,0 +1,345 @@
+@charset "UTF-8";
+
+/* ページ全体の設定とテキストの自動拡大を無効化 */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* 「ヘッダー」ブロック */
+header {
+  color: #29abe2;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+/* リンク */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* ナビゲーションメニュー */
+nav ul {
+  color: #666;
+  display: flex;
+  font-size: 12px;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li:not(:last-child) {
+  margin-right: 20px;
+}
+
+/* 「コンテンツ」ブロック */
+.contents {
+  background-color: #29abe2;
+  padding: 40px 15px;
+}
+
+/* 記事 */
+article {
+  background-color: #fff;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+p {
+  line-height: 2;
+}
+
+/* 画像 */
+img {
+  height: auto;
+  width: 100%;
+}
+
+figure {
+  margin: 0;
+}
+
+/* 投稿日 */
+time {
+  color: #666;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* サブメニュー */
+aside {
+  background-color: #fff;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+h2 {
+  color: #29abe2;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: normal;
+  text-align: center;
+}
+
+/* サブメニュー：プロフィール */
+.profile img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.profile figure {
+  text-align: center;
+}
+
+.profile p {
+  font-size: 14px;
+  text-align: center;
+}
+
+/* サブメニュー：注目記事メニュー */
+.topics ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.topics a {
+  align-items: center;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.topics figure {
+  flex: none;
+  width: 100px;
+}
+
+.topics img {
+  vertical-align: bottom;
+}
+
+.topics h3 {
+  font-size: 14px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-top: 0;
+}
+
+
+/* 「フッター」ブロック */
+footer {
+  background-color: #6ac4eb;
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 14px;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+
+/* トップページ： ヒーローイメージ */
+.hero {
+  align-items: center;
+  background-image: url(img/walk.jpg);
+  background-position: center;
+  background-size: cover;
+  box-sizing: border-box;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 532px;
+  justify-content: center;
+  padding: 15px;
+}
+
+.hero h1 {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 48px;
+  text-align: center;
+  text-shadow: 0 0 10px #444;
+  width: 100%;
+
+  /* IE11用の設定 */
+}
+
+.hero p {
+  font-weight: bold;
+  margin-top: 0;
+  text-shadow: 0 0 10px #444;
+}
+
+.hero a {
+  background-color: rgba(41, 171, 226, 0.7);
+  border: solid 2px #fff;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px 40px;
+}
+
+/* トップページ： 記事一覧 */
+.toppost {
+  padding: 15px;
+}
+
+.toppost div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.toppost article {
+  flex: none;
+  padding: 0;
+  width: 48%;
+}
+
+.toppost article:not(:nth-last-child(-n+2)) {
+  margin-bottom: 12px;
+}
+
+.toppost h3 {
+  font-size: 14px;
+  margin: 0;
+}
+
+
+/* 「サイトについて」ページ */
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: solid 1px #ccc;
+  padding: 18px;
+}
+
+th {
+  background-color: #135977;
+  color: #fff;
+  text-align: left;
+  width: 4em;
+}
+
+td {
+  background-color: #e8eef9;
+}
+
+
+/* 「お問い合わせ」ページ */
+input,
+textarea {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+}
+
+textarea {
+  height: 120px;
+}
+
+input[type='submit'] {
+  -webkit-appearance: none;
+  background-color: #fa0;
+  border: none;
+}
+
+
+/* ==== PC版 ==== */
+@media (min-width: 600px) {
+  /* PC版：コンテナ */
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+  }
+
+  /* PC版：「ヘッダー」ブロック内のコンテナ */
+  header .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* PC版：記事 */
+  article {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  /* PC版：トップページ： ヒーローイメージ */
+  .hero h1 {
+    font-size: 72px;
+  }
+
+  /* PC版：トップページ： 記事一覧 */
+  .toppost article {
+    width: 23%;
+  }
+
+  .toppost article:not(:nth-last-child(-n+2)) {
+    margin-bottom: 0;
+  }
+
+  /* PC版：「お問い合わせ」ページ */
+  input[type='submit'] {
+    width: 250px;
+  }
+
+}
+
+/* ===== PC版の設定ここまで ===== */
+
+
+
+/* ==== PC版（大） ==== */
+@media (min-width: 1025px) {
+  /* PC版（大）：コンテナ */
+  .container {
+    max-width: 1100px;
+  }
+
+  /* PC版（大）：「コンテンツ」ブロック内のコンテナ */
+  .contents .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* PC版（大）：記事 */
+  article {
+    box-sizing: border-box;
+    width: 68%;
+  }
+
+  /* PC版（大）：サブメニュー */
+  .sub {
+    width: 28%;
+  }
+
+  /* PC版（大）：プロフィール */
+  .profile {
+    margin-top: 0;
+  }
+
+}
+
+/* ===== PC版（大）の設定ここまで ===== */
