@@ -20,7 +20,7 @@ const TopPost: FC<TopPostProps> = ({ posts = [], isLoading = false }) => {
               <article key={post.id}>
                 <a href={post.imageURL}>
                   <figure>
-                    <img src={post.imageURL} alt={post.title} />
+                    <img src={post.imageURL} alt={`${post.title}の画像`} />
                   </figure>
                   <h3>{post.title}</h3>
                 </a>
