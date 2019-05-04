@@ -152,7 +152,7 @@ footer {
 /* トップページ： ヒーローイメージ */
 .hero {
   align-items: center;
-  background-image: url(img/walk.jpg);
+  background-image: url('');
   background-position: center;
   background-size: cover;
   box-sizing: border-box;
