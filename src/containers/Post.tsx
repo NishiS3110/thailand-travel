@@ -1,8 +1,15 @@
 import React, { FC } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
+import Helmet from 'react-helmet';
 
 import Post from '../components/Post';
 
-const PostContainer: FC = () => {
+type PostProps = {} & RouteComponentProps<{ id: string }>;
+
+const PostContainer: FC<PostProps> = ({ history, match }) => {
+  // eslint-disable-next-line
+  const targetId = match.params.id;
+
   const title = 'test1';
   const postImageURL = '';
   const body =
@@ -11,18 +18,31 @@ const PostContainer: FC = () => {
   const isLoading = false;
 
   return (
-    <div className="contents">
-      <div className="container">
-        <Post
-          title={title}
-          postImageURL={postImageURL}
-          body={body}
-          createdTime={createdTime}
-          isLoading={isLoading}
-        />
+    <>
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
+      <div className="contents">
+        <div className="container">
+          <Post
+            title={title}
+            postImageURL={postImageURL}
+            body={body}
+            createdTime={createdTime}
+            isLoading={isLoading}
+          />
+          <button
+            type="button"
+            onClick={() => {
+              history.push('/');
+            }}
+          >
+            TOPへ
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default PostContainer;
+export default withRouter(PostContainer);

@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 const HeroImage: FC = () => (
   <section className="hero">
     <h1>タイ旅行記</h1>
     <p>~ただひたすらに寺院を巡って~</p>
-    <a href="https://github.com/NishiS3110">No.1 オススメ寺院</a>
+    <Link to="/posts/0001">No.1 オススメ寺院</Link>
   </section>
 );
 

@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import Helmet from 'react-helmet';
 
 import HeroImage from '../components/HeroImage';
 import TopPost from '../components/TopPost';
@@ -46,6 +47,9 @@ const TopContainer: FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>タイ旅行記 ~ただひたすらに寺院を巡って~</title>
+      </Helmet>
       <HeroImage />
       <TopPost posts={posts} isLoading={isLoading} />
     </>
