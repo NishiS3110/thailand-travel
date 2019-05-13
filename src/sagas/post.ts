@@ -3,11 +3,25 @@ import { all, call, fork, put, takeLatest } from 'redux-saga/effects';
 import * as Action from '../actions/actionTypeConstants';
 import { getPosts } from '../actions/post';
 
+import rsf from '../plugins/firebase';
+
 import { Post } from '../services/models';
 
 function* runGetPosts(action: ReturnType<typeof getPosts.start>) {
   try {
-    const posts: Post[] = [];
+    const snapshot = yield call(rsf.firestore.getCollection, 'posts');
+    let posts: Post[];
+    snapshot.forEach(post => {
+      const tempPost: Post = {
+        id: post.id,
+        title: post.data().title,
+        imageURL: post.data().imageURL,
+        body: post.data().body,
+        createdTime: post.data().createdTime,
+        updatedTime: post.data().updatedTime,
+      };
+      posts.push(tempPost);
+    });
 
     yield put(getPosts.succeed({}, { posts }));
   } catch (error) {
