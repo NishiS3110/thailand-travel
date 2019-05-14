@@ -10,8 +10,8 @@ import { Post } from '../services/models';
 function* runGetPosts(action: ReturnType<typeof getPosts.start>) {
   try {
     const snapshot = yield call(rsf.firestore.getCollection, 'posts');
-    let posts: Post[];
-    snapshot.forEach(post => {
+    const posts: Post[] = [];
+    snapshot.forEach((post: any) => {
       const tempPost: Post = {
         id: post.id,
         title: post.data().title,

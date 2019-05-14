@@ -5,7 +5,7 @@ const HeroImage: FC = () => (
   <section className="hero">
     <h1>タイ旅行記</h1>
     <p>~ただひたすらに寺院を巡って~</p>
-    <Link to="/posts/0001">No.1 オススメ寺院</Link>
+    {/* <Link to="/posts/0001">No.1 オススメスポット</Link> */}
   </section>
 );
 
