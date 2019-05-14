@@ -1,48 +1,93 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { RouteComponentProps, withRouter } from 'react-router';
 import Helmet from 'react-helmet';
 
-import Post from '../components/Post';
+import PostComp, { PostProps } from '../components/Post';
+import { PostState } from '../reducer';
+import { Post } from '../services/models';
+import { getPosts } from '../actions/post';
 
-type PostProps = {} & RouteComponentProps<{ id: string }>;
+interface StateProps {
+  posts: Post[];
+  isLoading?: boolean;
+}
 
-const PostContainer: FC<PostProps> = ({ history, match }) => {
-  // eslint-disable-next-line
-  const targetId = match.params.id;
+interface DispatchProps {
+  getPostsStart: () => void;
+}
 
-  const title = 'test1';
-  const postImageURL = '';
-  const body =
-    '<p>タイ旅行の写真です。</p><p>このスポット寺院です。</p><p>寺院ではありますが、金色の外装なので明るく豪華な印象を受けます。各国からの観光客が多く、祈りを落ち着いて捧げることは難しそうでした。</p>';
-  const createdTime = '2019-05-04';
-  const isLoading = false;
+type EnhancedPostProps = PostProps &
+  StateProps &
+  DispatchProps &
+  RouteComponentProps<{ id: string }>;
+
+const mapStateToProps = (state: PostState): StateProps => ({
+  posts: state.posts,
+  isLoading: state.isLoading,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
+  bindActionCreators(
+    {
+      getPostsStart: () => getPosts.start({}),
+    },
+    dispatch,
+  );
+
+const PostContainer: FC<EnhancedPostProps> = ({
+  posts,
+  isLoading,
+  getPostsStart,
+  match,
+}) => {
+  const { id } = match.params;
+
+  useEffect(() => {
+    getPostsStart();
+  }, []);
+
+  let post: any = {};
+  post = posts.find(tempPost => tempPost.id === id);
 
   return (
     <>
-      <Helmet>
-        <title>{title}</title>
-      </Helmet>
-      <div className="contents">
-        <div className="container">
-          <Post
-            title={title}
-            postImageURL={postImageURL}
-            body={body}
-            createdTime={createdTime}
-            isLoading={isLoading}
-          />
-          <button
+      {post ? (
+        <>
+          <Helmet>
+            <title>{post.title}</title>
+          </Helmet>
+          <div className="contents">
+            <div className="container">
+              <PostComp
+                title={post.title}
+                postImageURL={post.imageURL}
+                body={post.body}
+                createdTime={post.createdTime}
+                isLoading={isLoading}
+              />
+              {/* <button
             type="button"
             onClick={() => {
               history.push('/');
             }}
           >
             TOPへ
-          </button>
-        </div>
-      </div>
+          </button> */}
+            </div>
+          </div>
+        </>
+      ) : (
+        <div>読み込み中</div>
+      )}
     </>
   );
 };
 
-export default withRouter(PostContainer);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(PostContainer),
+);
