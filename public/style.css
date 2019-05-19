@@ -10,7 +10,7 @@ body {
 
 /* 「ヘッダー」ブロック */
 header {
-  color: #29abe2;
+  color: #ffe659;
   font-family: 'Exo 2', sans-serif;
   font-size: 36px;
   font-weight: bold;
@@ -44,7 +44,7 @@ nav li:not(:last-child) {
 
 /* 「コンテンツ」ブロック */
 .contents {
-  background-color: #29abe2;
+  background-color: #ffe659;
   padding: 40px 15px;
 }
 
@@ -87,7 +87,7 @@ aside {
 }
 
 h2 {
-  color: #29abe2;
+  color: #ffe659;
   font-family: 'Exo 2', sans-serif;
   font-weight: normal;
   text-align: center;
@@ -140,7 +140,7 @@ h2 {
 
 /* 「フッター」ブロック */
 footer {
-  background-color: #6ac4eb;
+  background-color: #ffe972;
   color: #fff;
   font-family: 'Exo 2', sans-serif;
   font-size: 14px;
@@ -152,7 +152,7 @@ footer {
 /* トップページ： ヒーローイメージ */
 .hero {
   align-items: center;
-  background-image: url('');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/thailand-travel-d4597.appspot.com/o/20160308_151340.jpg?alt=media&token=6ccee8c4-2b16-4af7-822f-2683bc28440d');
   background-position: center;
   background-size: cover;
   box-sizing: border-box;
@@ -181,7 +181,7 @@ footer {
 }
 
 .hero a {
-  background-color: rgba(41, 171, 226, 0.7);
+  background-color: rgba(255, 230, 89, 0.7);
   border: solid 2px #fff;
   border-radius: 10px;
   margin-top: 10px;
