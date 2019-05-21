@@ -152,7 +152,7 @@ footer {
 /* トップページ： ヒーローイメージ */
 .hero {
   align-items: center;
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/thailand-travel-d4597.appspot.com/o/20160308_151340.jpg?alt=media&token=6ccee8c4-2b16-4af7-822f-2683bc28440d');
+  background-image: url('HeroImage.jpg');
   background-position: center;
   background-size: cover;
   box-sizing: border-box;
