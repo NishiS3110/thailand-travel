@@ -79,7 +79,7 @@ const PostContainer: FC<EnhancedPostProps> = ({
           </div>
         </>
       ) : (
-        <div>読み込み中</div>
+        <div className="loader">Loading...</div>
       )}
     </>
   );

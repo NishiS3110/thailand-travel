@@ -12,7 +12,7 @@ const TopPost: FC<TopPostProps> = ({ posts = [], isLoading = false }) => {
   return (
     <>
       {isLoading ? (
-        <div>読み込み中</div>
+        <div className="loader">Loading...</div>
       ) : (
         <section className="toppost">
           <h2>SPOT</h2>
