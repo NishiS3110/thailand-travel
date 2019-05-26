@@ -295,6 +295,11 @@ footer {
   margin-bottom: 12px;
 }
 
+.toppost article img {
+  height: 150px;
+  object-fit: fill;
+}
+
 .toppost h3 {
   font-size: 14px;
   margin: 0;
