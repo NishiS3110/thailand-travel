@@ -5,6 +5,8 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import Helmet from 'react-helmet';
 
 import PostComp, { PostProps } from '../components/Post';
+import SubMenu from '../components/SubMenu';
+
 import { PostState } from '../reducer';
 import { Post } from '../services/models';
 import { getPosts } from '../actions/post';
@@ -53,34 +55,27 @@ const PostContainer: FC<EnhancedPostProps> = ({
 
   return (
     <>
-      {post ? (
-        <>
-          <Helmet>
-            <title>{post.title}</title>
-          </Helmet>
-          <div className="contents">
-            <div className="container">
-              <PostComp
-                title={post.title}
-                postImageURL={post.imageURL}
-                body={post.body}
-                createdTime={post.createdTime}
-                isLoading={isLoading}
-              />
-              {/* <button
-            type="button"
-            onClick={() => {
-              history.push('/');
-            }}
-          >
-            TOPへ
-          </button> */}
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="loader">Loading...</div>
+      {post && (
+        <Helmet>
+          <title>{post.title}</title>
+        </Helmet>
       )}
+      <div className="contents">
+        <div className="container">
+          {post ? (
+            <PostComp
+              title={post.title}
+              postImageURL={post.imageURL}
+              body={post.body}
+              createdTime={post.createdTime}
+              isLoading={isLoading}
+            />
+          ) : (
+            <div className="loader">Loading...</div>
+          )}
+          <SubMenu />
+        </div>
+      </div>
     </>
   );
 };
