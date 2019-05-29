@@ -6,3 +6,11 @@ export interface Post {
   createdTime: string;
   updatedTime: string;
 }
+
+export interface RecommendationModel {
+  id?: string;
+  title: string;
+  imageURL: string;
+  createdTime: string;
+  updatedTime: string;
+}
