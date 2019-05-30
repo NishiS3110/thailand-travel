@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+
+import ArticleCard from './ArticleCard';
 
 import { Post } from '../services/models';
 
@@ -18,14 +19,7 @@ const TopPost: FC<TopPostProps> = ({ posts = [], isLoading = false }) => {
           <h2>SPOT</h2>
           <div className="container">
             {posts.map(post => (
-              <article key={post.id}>
-                <Link to={`/posts/${post.id}`}>
-                  <figure>
-                    <img src={post.imageURL} alt={`${post.title}の画像`} />
-                  </figure>
-                  <h3>{post.title}</h3>
-                </Link>
-              </article>
+              <ArticleCard post={post} />
             ))}
           </div>
         </section>
