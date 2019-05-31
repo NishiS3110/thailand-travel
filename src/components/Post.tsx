@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
 
-// import { User } from '../services/github/models';
-
 export interface PostProps {
   title: string;
   postImageURL: string;
