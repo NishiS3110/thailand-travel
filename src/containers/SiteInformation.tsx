@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import { RouteComponentProps, withRouter } from 'react-router';
 
 import SiteInformationComp from '../components/SiteInformation';
-import SubMenu from '../components/SubMenu';
 
 type SiteInformationProps = {} & RouteComponentProps;
 
@@ -15,7 +14,6 @@ const SiteInformationContainer: FC<SiteInformationProps> = () => (
     <div className="contents">
       <div className="container">
         <SiteInformationComp />
-        <SubMenu />
       </div>
     </div>
   </>
