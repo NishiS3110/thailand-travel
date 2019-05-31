@@ -3,6 +3,8 @@ import { all, call, fork, put, takeLatest } from 'redux-saga/effects';
 import * as Action from '../actions/actionTypeConstants';
 import { getPosts } from '../actions/post';
 
+import { watchGetRecommendation } from './recommendation';
+
 import rsf from '../plugins/firebase';
 
 import { Post } from '../services/models';
@@ -34,5 +36,5 @@ export function* watchGetPosts() {
 }
 
 export default function* rootSaga() {
-  yield all([fork(watchGetPosts)]);
+  yield all([fork(watchGetPosts), fork(watchGetRecommendation)]);
 }

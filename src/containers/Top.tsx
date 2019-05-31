@@ -15,6 +15,11 @@ interface StateProps {
   isLoading?: boolean;
 }
 
+// combineReducersでで階層が変わる
+interface WrappedPostState {
+  postReducer: PostState;
+}
+
 interface DispatchProps {
   getPostsStart: () => void;
 }
@@ -24,9 +29,9 @@ type EnhancedTopPostProps = TopPostProps &
   DispatchProps &
   RouteComponentProps;
 
-const mapStateToProps = (state: PostState): StateProps => ({
-  posts: state.posts,
-  isLoading: state.isLoading,
+const mapStateToProps = (state: WrappedPostState): StateProps => ({
+  posts: state.postReducer.posts,
+  isLoading: state.postReducer.isLoading,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
