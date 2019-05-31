@@ -19,7 +19,7 @@ const TopPost: FC<TopPostProps> = ({ posts = [], isLoading = false }) => {
           <h2>SPOT</h2>
           <div className="container">
             {posts.map(post => (
-              <ArticleCard post={post} />
+              <ArticleCard post={post} key={post.id} />
             ))}
           </div>
         </section>

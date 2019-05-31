@@ -18,7 +18,7 @@ const defaultPost = {
 
 const ArticleCard: FC<ArticleCardProps> = ({ post = defaultPost }) => {
   return (
-    <article key={post.id}>
+    <article>
       <Link to={`/posts/${post.id}`}>
         <figure>
           <img src={post.imageURL} alt={`${post.title}の画像`} />
