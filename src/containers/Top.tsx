@@ -57,7 +57,7 @@ const TopContainer: FC<EnhancedTopPostProps> = ({
       <Helmet>
         <title>タイ旅行記 ~ただひたすらに寺院を巡って~</title>
       </Helmet>
-      <HeroImage />
+      <HeroImage post={posts[0]} />
       <TopPost posts={posts} isLoading={isLoading} />
     </>
   );
